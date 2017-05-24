@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'player'
+require './lib/player'
 
 class Battle < Sinatra::Base
 
@@ -24,8 +24,9 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @name1 = $player_1.name
-    @name2 = $player_2.name
+    @name1 = $player_1
+    @name2 = $player_2
+    @name1.attack(@name2)
     erb :attack
     # redirect '/play'
   end
