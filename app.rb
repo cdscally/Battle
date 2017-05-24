@@ -22,4 +22,11 @@ class Battle < Sinatra::Base
     erb :play
   end
 
+  get '/attack' do
+    @name1 = session[:player_1_name]
+    @name2 = session[:player_2_name]
+    erb :attack
+    # redirect '/play'
+  end
+
 end
